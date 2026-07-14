@@ -2,6 +2,7 @@ import { useEffect, useState, useContext, useMemo } from "react"
 import { Link } from "react-router-dom"
 import API from "../services/api"
 import { AuthContext } from "../contexts/AuthContext"
+import { IMAGE_BASE_URL } from "../config"
 
 // Utility functions for styling (matching other pages)
 const getStatusColor = (status) => {
@@ -74,7 +75,7 @@ const ComplaintCard = ({ complaint, onUpvote, user }) => {
       {complaint.imageUrl && (
         <div className="relative h-40 overflow-hidden">
           <img
-            src={`http://localhost:8080/${complaint.imageUrl}`}
+            src={`${IMAGE_BASE_URL}${complaint.imageUrl}`}
             alt={complaint.title || "Issue"}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />

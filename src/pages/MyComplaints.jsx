@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../services/api";
+import { IMAGE_BASE_URL } from "../config";
 
 function MyComplaints() {
   const [complaints, setComplaints] = useState([]);
@@ -159,7 +160,7 @@ function MyComplaints() {
                   {c.imageUrl && (
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={`http://localhost:8080/${c.imageUrl}`}
+                        src={`${IMAGE_BASE_URL}${c.imageUrl}`}
                         alt="Complaint"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />

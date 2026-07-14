@@ -3,6 +3,7 @@ import { useParams, useLocation } from "react-router-dom"
 import { MapContainer, TileLayer, Marker } from "react-leaflet"
 import API from "../services/api"
 import { AuthContext } from "../contexts/AuthContext"
+import { IMAGE_BASE_URL } from "../config"
 
 function ComplaintDetails() {
   const { id } = useParams()
@@ -12,7 +13,6 @@ function ComplaintDetails() {
   const [error, setError] = useState("")
   const [info, setInfo] = useState(location.state?.message || "")
   const [voteMsg, setVoteMsg] = useState("")
-  const IMAGE_BASE_URL = "http://localhost:8080/"
 
   const fetchComplaint = async () => {
     try {

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext"
 import API from "../services/api"
+import { IMAGE_BASE_URL } from "../config"
 
 // Utility functions for styling
 const getStatusBadge = (status) => {
@@ -52,7 +53,7 @@ const ComplaintCard = ({ complaint, onViewDetails }) => (
     {complaint.imageUrl && (
       <div className="relative h-32 overflow-hidden">
         <img
-          src={`http://localhost:8080/${complaint.imageUrl}`}
+          src={`${IMAGE_BASE_URL}${complaint.imageUrl}`}
           alt={complaint.title || "Issue"}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />

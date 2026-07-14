@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import API from "../services/api"
+import { IMAGE_BASE_URL } from "../config"
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
@@ -141,7 +142,7 @@ const ViewComplaintModal = ({ isOpen, onClose, complaint }) => {
           {/* Image */}
           {complaint.imageUrl && (
             <img
-              src={`http://localhost:8080/${complaint.imageUrl}`}
+              src={`${IMAGE_BASE_URL}${complaint.imageUrl}`}
               alt={complaint.title}
               className="w-full h-48 object-cover rounded-xl mb-4"
             />
